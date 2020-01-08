@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import com.coroda.exception.ResourceNotFoundException;
+import com.coroda.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ import com.coroda.model.Product;
 import com.coroda.service.ProductService;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping(Constants.MAIN_PATH)
 
 public class ProductController {
 	
@@ -50,13 +51,13 @@ public class ProductController {
 	}
 
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping(Constants.ID)
 	public void delete(@Valid@PathVariable("id") Integer id) throws Exception {
 		productService.delete(id);
 	}
 
 	
-	@GetMapping("/{id}")
+	@GetMapping(Constants.ID)
 	public ResponseEntity<?> get(@Valid@PathVariable("id") Integer id) throws Exception {
 		Product obj = productService.getId(id);
 
