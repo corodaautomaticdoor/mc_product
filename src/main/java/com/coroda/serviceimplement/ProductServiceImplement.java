@@ -61,9 +61,15 @@ public class ProductServiceImplement implements ProductService {
 	}
 
 	@Override
-	public List<Product> search(Product model) {
+	public Product search_model(String model) {
 
-		return null;
+		return (Product) productDAO.search_model(model);
+	}
+
+	@Override
+	public List<Product> search_material(String material) {
+
+		return  productDAO.search_material(material);
 	}
 
 	// For All

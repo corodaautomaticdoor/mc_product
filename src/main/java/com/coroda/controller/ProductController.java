@@ -74,4 +74,27 @@ public class ProductController {
 		return productService.findAll(null);
 
 	}
+
+
+	@GetMapping(Constants.MODEL)
+	public ResponseEntity<?> searchModel(@Valid@PathVariable("model") String modelo) throws Exception {
+		Product obj = (Product) productService.search_model(modelo);
+
+		if(obj==null) {
+//			LOGGER.warn("el producto no se encuentra registrado");
+			throw new ResourceNotFoundException("El modelo "+ modelo +" no existe");
+		}
+		return new ResponseEntity<>(obj, HttpStatus.OK);
+	}
+
+	@GetMapping(Constants.MATERIAL)
+	public ResponseEntity<?> searchMaterial(@Valid@PathVariable("material") String material) throws Exception {
+		List<Product> obj =  productService.search_material(material);
+
+		if(obj==null) {
+//			LOGGER.warn("el producto no se encuentra registrado");
+			throw new ResourceNotFoundException("El modelo "+ material +" no existe");
+		}
+		return new ResponseEntity<>(obj, HttpStatus.OK);
+	}
 }

@@ -18,9 +18,12 @@ public interface ProductService {
 
 	Product getId(Integer id);
 
-	List<Product> search(Product model);
+	Product search_model(String model);
+
+	List<Product> search_material(String material);
 
 	List<Product> findAll(Product model)throws Exception ;
+
 
 
 }

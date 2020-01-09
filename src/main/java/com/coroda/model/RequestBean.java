@@ -11,7 +11,5 @@ public class RequestBean {
     private int id;
     private String model;
     private String material;
-    private String description;
-    private String dimensions;
 
 }
