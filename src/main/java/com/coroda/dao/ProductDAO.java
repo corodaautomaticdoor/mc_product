@@ -10,7 +10,7 @@ import java.util.List;
 
 //the repository is connected to the model through the jpa
 public interface ProductDAO extends JpaRepository<Product, Integer>{
-    
+
      @Query(value =  "select * from product p where p.model in (:model)", nativeQuery = true)
      Product search_model(String model);
 
