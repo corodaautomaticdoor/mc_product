@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "5371c32c-fa83-4a7a-8a04-767281754c5d",
+		"name": "CORODA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"brand\": \"gl\",\r\n  \"category\": \"puertas\",\r\n  \"description\": \"puerta\",\r\n  \"detail\": [\r\n    {\r\n      \"color\": \"Azul\",\r\n      \"dimensions\": \"5x4\",\r\n      \"id\": 1,\r\n      \"material\": \"madera\",\r\n      \"priceUnit\": 30\r\n    }\r\n  ],\r\n  \r\n  \"model\": \"vintage\",\r\n  \"origin\": \"Nacional\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"brand\": \"LG\",\r\n  \"category\": \"cercos\",\r\n  \"description\": \"cerco electrico\",\r\n  \"detail\": [\r\n    {\r\n      \"color\": \"Rojo\",\r\n      \"dimensions\": \"20x4\",\r\n      \"detailId\": 2,\r\n      \"id\": 3,\r\n      \"material\": \"melamine\",\r\n      \"priceUnit\": 70\r\n    }\r\n  ],\r\n  \"id\": 3,\r\n  \"model\": \"vintage\",\r\n  \"origin\": \"Nacional\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

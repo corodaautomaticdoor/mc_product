@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping(Constants.MAIN_PATH)
-@Api(tags = "Microservicio Operation", description = "Esta API se encarga de la gestion de las Operaciones")
+@Api(tags = "Microservicio Product", description = "Esta API se encarga de la gestion de las productos")
 @Slf4j
 public class ProductController {
 
