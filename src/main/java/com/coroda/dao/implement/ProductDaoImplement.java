@@ -83,7 +83,6 @@ public class ProductDaoImplement implements ProductDao {
         log.info("buscando por id y obteniendo los campos");
         return Maybe.just(
                 productRepository.findById(id)
-                       // .orElseThrow(IllegalArgumentException::new))
                         .<BadRequestException>orElseThrow(BadRequestException::new))
                 .switchIfEmpty(Maybe.empty());
     }
