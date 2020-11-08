@@ -31,6 +31,9 @@ public class ProductRequest {
     @ApiModelProperty(value = "origin", required = true)
     private OriginProduct origin;// nacional o importado
 
+    @ApiModelProperty(value = "image", required = true)
+    private String image;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
        private List<DetailProductRequest> detail;
 }

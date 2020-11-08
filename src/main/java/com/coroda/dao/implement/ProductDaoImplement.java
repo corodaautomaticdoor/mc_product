@@ -46,6 +46,7 @@ public class ProductDaoImplement implements ProductDao {
         p.setCategory(model.getCategory());
         p.setDescription(model.getDescription());
         p.setOrigin(model.getOrigin());
+        p.setImage(model.getImage());
         p.setDetail(setListaDetail(model.getDetail()));
         return p;
     }
@@ -108,6 +109,7 @@ public class ProductDaoImplement implements ProductDao {
         p.setCategory(model.getCategory());
         p.setDescription(model.getDescription());
         p.setOrigin(model.getOrigin());
+        p.setImage(model.getImage());
         p.setDetail(getListaDetail(model.getDetail()));
         return p;
     }

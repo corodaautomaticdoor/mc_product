@@ -17,6 +17,7 @@ public class ProductResponse {
     private String category;
     private String description;
     private OriginProduct origin;
+    private String image;
 
     private List<DetailProductResponse> detail;
 

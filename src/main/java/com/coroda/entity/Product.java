@@ -29,6 +29,9 @@ public class Product {
     @Column(name = "origin")
     private OriginProduct origin;
 
+    @Column(name = "image")
+    private String image;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id")
     private List<DetailProduct> detail;
