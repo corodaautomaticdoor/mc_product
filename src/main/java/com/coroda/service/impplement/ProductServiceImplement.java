@@ -46,6 +46,7 @@ public class ProductServiceImplement implements ProductService {
         log.info("Busqueda Dinamica");
         Observable<ProductResponse> productResponseObservable = null;
         String modelProduct;
+        String categoryProduct;
         OriginProduct originProduct;
 
         if (!params.isEmpty()) {
@@ -62,6 +63,10 @@ public class ProductServiceImplement implements ProductService {
                 log.info("Buscando por modelo de Producto ");
                 modelProduct = params.get("modelProduct");
                 productResponseObservable = productDao.searchModelProduct(modelProduct);
+            }else if (params.get("categoryProduct") !=null && params.get("modelProduct") == null){
+                log.info("Buscando por categoria de Producto ");
+                categoryProduct = params.get("categoryProduct");
+                productResponseObservable = productDao.searchCategoryProduct(categoryProduct);
             }
         }else {
             log.info("Buscando todos los registros");
