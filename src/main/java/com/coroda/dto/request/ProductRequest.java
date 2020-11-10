@@ -13,39 +13,39 @@ import java.util.List;
 @ApiModel("Model Product")
 public class ProductRequest {
 
-    @ApiModelProperty(value = "id")
+    @ApiModelProperty(value = "id" , position = 1)
     private Long id;
 
-    @ApiModelProperty(value = "category", required = true)
+    @ApiModelProperty(value = "category", required = true , position = 2)
     private String category; //puerta,equipo de seguridad ,motores ,sistemas
 
-    @ApiModelProperty(value = "subCategory", required = true)
+    @ApiModelProperty(value = "subCategory", required = true , position = 3)
     private String subCategory; //puerta garage, puer..  ,cercoelectrico , etc
 
-    @ApiModelProperty(value = "model", required = true)
+    @ApiModelProperty(value = "model", required = true , position = 4)
     private String model;
 
-    @ApiModelProperty(value = "brand", required = true)
+    @ApiModelProperty(value = "brand", required = true , position = 5)
     private String brand; // marca
 
-    @ApiModelProperty(value = "description", required = true)
+    @ApiModelProperty(value = "description", required = true , position = 6)
     private String description;
 
-    @ApiModelProperty(value = "origin", required = true)
+    @ApiModelProperty(value = "origin", required = true , position = 7)
     private OriginProduct origin;// nacional o importado
 
-    @ApiModelProperty(value = "material", required = true)
+    @ApiModelProperty(value = "material", required = true , position = 8)
     private String material;
 
-    @ApiModelProperty(value = "dimensions", required = true)
+    @ApiModelProperty(value = "dimensions", required = true , position = 9)
     private String dimensions;
 
-    @ApiModelProperty(value = "color", required = true)
+    @ApiModelProperty(value = "color", required = true , position = 10)
     private String color;
 
-    @ApiModelProperty(value = "priceUnit", required = true)
+    @ApiModelProperty(value = "priceUnit", required = true , position = 11)
     private BigDecimal priceUnit;
 
-    @ApiModelProperty(value = "image", required = true)
+    @ApiModelProperty(value = "image", required = true , position = 12)
     private String image;
 }
