@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5371c32c-fa83-4a7a-8a04-767281754c5d",
+		"_postman_id": "d5b53086-d619-4248-be60-fc401fb26706",
 		"name": "CORODA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -116,6 +116,41 @@
 					"path": [
 						"product",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar_Origen_categoria_modelo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product?originProduct=Nacional",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "modelProduct",
+							"value": "PP01",
+							"disabled": true
+						},
+						{
+							"key": "categoryProduct",
+							"value": "puerta",
+							"disabled": true
+						},
+						{
+							"key": "originProduct",
+							"value": "Nacional"
+						}
 					]
 				}
 			},
