@@ -17,6 +17,7 @@ public interface ProductDao {
 
     Observable<ProductResponse> searchOrigin(OriginProduct originProduct);
     Observable<ProductResponse> searchModelProduct(String modelProduct);
+    Observable<ProductResponse> searchCategoryProduct(String categoryProduct);
     Observable<ProductResponse> getData(OriginProduct originProduct, String modelProduct);
 
 }

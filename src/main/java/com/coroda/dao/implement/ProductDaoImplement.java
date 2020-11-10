@@ -1,11 +1,8 @@
 package com.coroda.dao.implement;
 
 import com.coroda.dao.ProductDao;
-import com.coroda.dto.request.DetailProductRequest;
 import com.coroda.dto.request.ProductRequest;
-import com.coroda.dto.response.DetailProductResponse;
 import com.coroda.dto.response.ProductResponse;
-import com.coroda.entity.DetailProduct;
 import com.coroda.entity.OriginProduct;
 import com.coroda.entity.Product;
 import com.coroda.repository.ProductRepository;
@@ -42,33 +39,19 @@ public class ProductDaoImplement implements ProductDao {
         log.info("seteo de datos del producto del metodo save");
         Product p = new Product();
         p.setId(model.getId());
+        p.setCategory(model.getCategory());
+        p.setSubCategory(model.getSubCategory());
         p.setModel(model.getModel());
         p.setBrand(model.getBrand());
-        p.setCategory(model.getCategory());
         p.setDescription(model.getDescription());
         p.setOrigin(model.getOrigin());
-        p.setDetail(setListaDetail(model.getDetail()));
+        p.setMaterial(model.getMaterial());
+        p.setDimensions(model.getDimensions());
+        p.setColor(model.getColor());
+        p.setPriceUnit(model.getPriceUnit());
+        p.setImage(model.getImage());
         return p;
     }
-
-    private List<DetailProduct> setListaDetail(List<DetailProductRequest> listaDetail) {
-        log.info("seteo de datos de DetailProduct ");
-        return listaDetail.stream()
-                .map(detail -> setDetail(detail))
-                .collect(Collectors.toList());
-    }
-
-    private DetailProduct setDetail(DetailProductRequest detail) {
-        DetailProduct d = new DetailProduct();
-        d.setId(detail.getId());
-        d.setDetailId(detail.getDetailId());
-        d.setMaterial(detail.getMaterial());
-        d.setDimensions(detail.getDimensions());
-        d.setColor(detail.getColor());
-        d.setPriceUnit(detail.getPriceUnit());
-        return d;
-    }
-
     @Override
     public Completable delete(Long id) {
         return maybeProduct(id)
@@ -104,32 +87,21 @@ public class ProductDaoImplement implements ProductDao {
     private ProductResponse getProduct(Product model) {
         ProductResponse p = new ProductResponse();
         p.setId(model.getId());
+        p.setCategory(model.getCategory());
+        p.setSubCategory(model.getSubCategory());
         p.setModel(model.getModel());
         p.setBrand(model.getBrand());
-        p.setCategory(model.getCategory());
         p.setDescription(model.getDescription());
         p.setOrigin(model.getOrigin());
-        p.setDetail(getListaDetail(model.getDetail()));
+        p.setMaterial(model.getMaterial());
+        p.setDimensions(model.getDimensions());
+        p.setColor(model.getColor());
+        p.setPriceUnit(model.getPriceUnit());
+        p.setImage(model.getImage());
         return p;
     }
 
-    private List<DetailProductResponse> getListaDetail(List<DetailProduct> listaDetail) {
-        log.info("obtener de datos de DetailProduct ");
-        return listaDetail.stream()
-                .map(details -> getDetail(details))
-                .collect(Collectors.toList());
-    }
 
-    private DetailProductResponse getDetail(DetailProduct detail) {
-        DetailProductResponse dr = new DetailProductResponse();
-        dr.setId(detail.getId());
-        dr.setDetailId(detail.getDetailId());
-        dr.setMaterial(detail.getMaterial());
-        dr.setDimensions(detail.getDimensions());
-        dr.setColor(detail.getColor());
-        dr.setPriceUnit(detail.getPriceUnit());
-        return dr;
-    }
 
     @Override
     public Observable<ProductResponse> findAll() {
@@ -153,6 +125,15 @@ public class ProductDaoImplement implements ProductDao {
         log.info("Extrayendo reistros del Producto  acorde al modelo");
         return Observable.fromIterable(productRepository.searchModelProduct(modelProduct))
                 .filter(obj -> obj.getModel().equals(modelProduct))
+                .map(product -> getProduct(product))
+                .subscribeOn(Schedulers.io());
+    }
+
+    @Override
+    public Observable<ProductResponse> searchCategoryProduct(String categoryProduct) {
+        log.info("Extrayendo reistros del Producto  acorde al modelo");
+        return Observable.fromIterable(productRepository.searchCategory(categoryProduct))
+                .filter(obj -> obj.getCategory().equals(categoryProduct))
                 .map(product -> getProduct(product))
                 .subscribeOn(Schedulers.io());
     }
