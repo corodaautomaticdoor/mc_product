@@ -19,4 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("from Product p where p.origin= :originProduct and p.model = :modelProduct")
     List<Product> getData (@Param("originProduct") OriginProduct originProduct, @Param("modelProduct")String modelProduct);
 
+    @Query("from Product p where p.category = :categoryProduct")
+    List<Product> searchCategory (@Param("categoryProduct") String categoryProduct);
 }
