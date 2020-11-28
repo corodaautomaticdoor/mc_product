@@ -15,6 +15,7 @@ public interface ProductService {
     Completable delete(Long id);
     Completable update(ProductRequest model);
     Single<ProductResponse> getById(Long id);
+    Observable<ProductResponse> getByModel(String model);
 
     Observable<ProductResponse> getData(Map<String, String> params);
 

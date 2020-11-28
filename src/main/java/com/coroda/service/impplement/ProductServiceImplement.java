@@ -42,6 +42,11 @@ public class ProductServiceImplement implements ProductService {
     }
 
     @Override
+    public Observable<ProductResponse> getByModel(String model) {
+        return productDao.searchModelProduct(model);
+    }
+
+    @Override
     public Observable<ProductResponse> getData(Map<String, String> params) {
         log.info("Busqueda Dinamica");
         Observable<ProductResponse> productResponseObservable = null;
