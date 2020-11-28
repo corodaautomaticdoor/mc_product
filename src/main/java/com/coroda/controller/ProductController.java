@@ -53,6 +53,13 @@ public class ProductController {
         return productService.getById(id);
     }
 
+    @GetMapping(Constants.MODEL)
+    @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
+    public Observable<ProductResponse> getByModel(@PathVariable("model")String model){
+        log.info("Obtencion de datos por id");
+        return productService.getByModel(model);
+    }
+
     @GetMapping
     @ApiOperation(value = Constants.GETDATA_VALUE, notes = Constants.GETDATA_NOTE)
     public Observable<ProductResponse> getData(@RequestParam Map<String, String> params) {
