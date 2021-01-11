@@ -79,7 +79,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"brand\": \"LG\",\r\n  \"category\": \"cercos\",\r\n  \"description\": \"cerco electrico\",\r\n  \"detail\": [\r\n    {\r\n      \"color\": \"Rojo\",\r\n      \"dimensions\": \"20x4\",\r\n      \"detailId\": 2,\r\n      \"id\": 3,\r\n      \"material\": \"melamine\",\r\n      \"priceUnit\": 70\r\n    }\r\n  ],\r\n  \"id\": 3,\r\n  \"model\": \"vintage\",\r\n  \"origin\": \"Nacional\"\r\n}",
+					"raw": "\r\n{\r\n  \"id\": 1,\r\n  \"category\": \"puerta\",\r\n  \"subCategory\": \"puerta de garaje\",\r\n  \"model\": \"PG01\",\r\n  \"brand\": \"coroda\",\r\n  \"description\": \"puerta para cochera\",\r\n  \"origin\": 1,\r\n  \"dimensions\": \"8 m x 2.5 m\",\r\n  \"material\": \"cedro\",\r\n  \"color\": \"cahoba\",\r\n  \"priceUnit\": 2000,\r\n  \"image\": \"1.jpg\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -87,7 +87,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8021/product/3",
+					"raw": "http://localhost:8021/product/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -95,7 +95,7 @@
 					"port": "8021",
 					"path": [
 						"product",
-						"3"
+						"1"
 					]
 				}
 			},
