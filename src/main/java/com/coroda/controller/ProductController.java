@@ -39,7 +39,7 @@ public class ProductController {
         return  productService.delete(id);
     }
 
-    @PutMapping(Constants.ID)
+    @PutMapping
     @ApiOperation(value = Constants.UPDATE_ID_VALUE, notes = Constants.UPDATE_ID_NOTE)
     public Completable update(@RequestBody ProductRequest model){
         log.info("Actualizacion de parametros");
@@ -51,6 +51,13 @@ public class ProductController {
     public Single<ProductResponse> getById(@PathVariable("id")Long id){
         log.info("Obtencion de datos por id");
         return productService.getById(id);
+    }
+
+    @GetMapping(Constants.CATEGORY)
+    @ApiOperation(value = Constants.GET_CATEGORY_VALUE, notes = Constants.GET_CATEGORY_NOTE)
+    public Observable<ProductResponse> getByCategory(@PathVariable("category") String category){
+        log.info("Obtencion de datos por categoria");
+        return productService.getByCategory(category);
     }
 
     @GetMapping(Constants.MODEL)

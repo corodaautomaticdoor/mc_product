@@ -16,6 +16,7 @@ public interface ProductService {
     Completable update(ProductRequest model);
     Single<ProductResponse> getById(Long id);
     Observable<ProductResponse> getByModel(String model);
+    Observable<ProductResponse> getByCategory(String category);
 
     Observable<ProductResponse> getData(Map<String, String> params);
 

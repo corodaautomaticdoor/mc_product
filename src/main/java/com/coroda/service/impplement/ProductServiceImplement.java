@@ -45,6 +45,10 @@ public class ProductServiceImplement implements ProductService {
     public Observable<ProductResponse> getByModel(String model) {
         return productDao.searchModelProduct(model);
     }
+    @Override
+    public Observable<ProductResponse> getByCategory(String category) {
+        return productDao.searchCategoryProduct(category);
+    }
 
     @Override
     public Observable<ProductResponse> getData(Map<String, String> params) {

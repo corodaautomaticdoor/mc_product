@@ -6,6 +6,62 @@
 	},
 	"item": [
 		{
+			"name": "Guardar productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"porton\",\r\n    \"subCategory\": \"porton de garaje\",\r\n    \"model\": \"PG02\",\r\n    \"brand\": \"coroda\",\r\n    \"description\": \"porton para cochera\",\r\n    \"origin\": 1,\r\n    \"material\": \"cedro\",\r\n    \"dimensions\": \"8 m x 2.5 m\",\r\n    \"color\": \"marron\",\r\n    \"priceUnit\": 4500.00,\r\n    \"image\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"id\": 6,\r\n    \"category\": \"porton\",\r\n    \"subCategory\": \"porton de garaje\",\r\n    \"model\": \"PG03\",\r\n    \"brand\": \"coroda\",\r\n    \"description\": \"porton para cochera\",\r\n    \"origin\": 0,\r\n    \"material\": \"cahoba\",\r\n    \"dimensions\": \"8 m x 2.5 m\",\r\n    \"color\": \"marron\",\r\n    \"priceUnit\": 5500.00,\r\n    \"image\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Listar productos",
 			"request": {
 				"method": "GET",
@@ -25,61 +81,16 @@
 			"response": []
 		},
 		{
-			"name": "Guardar productos",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"category\": \"puerta\",\r\n  \"subCategory\": \"puerta de garaje\",\r\n  \"model\": \"PG01\",\r\n  \"brand\": \"coroda\",\r\n  \"description\": \"puerta para cochera\",\r\n  \"origin\": 0,\r\n  \"dimensions\": \"8 m x 2.5 m\",\r\n  \"material\": \"cedro\",\r\n  \"color\": \"cahoba\",\r\n  \"priceUnit\": 2000,\r\n  \"image\": \"string\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8021/product",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8021",
-					"path": [
-						"product"
-					]
-				}
+			"name": "Listar productos por Categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
 			},
-			"response": []
-		},
-		{
-			"name": "Listar productos por ID",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:8021/product/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8021",
-					"path": [
-						"product",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Actualizar producto",
-			"request": {
-				"method": "PUT",
-				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n  \"id\": 1,\r\n  \"category\": \"puerta\",\r\n  \"subCategory\": \"puerta de garaje\",\r\n  \"model\": \"PG01\",\r\n  \"brand\": \"coroda\",\r\n  \"description\": \"puerta para cochera\",\r\n  \"origin\": 1,\r\n  \"dimensions\": \"8 m x 2.5 m\",\r\n  \"material\": \"cedro\",\r\n  \"color\": \"cahoba\",\r\n  \"priceUnit\": 2000,\r\n  \"image\": \"1.jpg\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -87,7 +98,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8021/product/1",
+					"raw": "http://localhost:8021/product/porton",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -95,7 +106,7 @@
 					"port": "8021",
 					"path": [
 						"product",
-						"1"
+						"porton"
 					]
 				}
 			},
@@ -122,12 +133,33 @@
 			"response": []
 		},
 		{
+			"name": "Listar productos por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Filtrar_Origen_categoria_modelo",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8021/product?originProduct=Nacional",
+					"raw": "http://localhost:8021/product?originProduct=Importado",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -149,7 +181,12 @@
 						},
 						{
 							"key": "originProduct",
-							"value": "Nacional"
+							"value": "Nacional",
+							"disabled": true
+						},
+						{
+							"key": "originProduct",
+							"value": "Importado"
 						}
 					]
 				}
@@ -162,7 +199,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8021/product/model/PG02",
+					"raw": "http://localhost:8021/product/model/PG03",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -171,7 +208,7 @@
 					"path": [
 						"product",
 						"model",
-						"PG02"
+						"PG03"
 					]
 				}
 			},

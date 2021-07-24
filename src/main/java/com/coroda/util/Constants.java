@@ -2,8 +2,9 @@ package com.coroda.util;
 
 public class Constants {
     public final static String MAIN_PATH = "/product";
-    public final static String ID = "/{id}";
+    public final static String ID = "id/{id}";
     public final static String MODEL = "model/{model}";
+    public final static String CATEGORY = "/{category}";
     public final static String ORIGIN = "/origin/{id}";
 
     public final static String SUCCESS = "SUCCESS";
@@ -17,8 +18,10 @@ public class Constants {
     public final static String UPDATE_ID_NOTE="Para Actualizar los  datos de un Producto , sera necesario enviar todo el registro con los datos ya actualizados junto a sus Id`s ";
     public final static String GET_ID_VALUE="Metodo a traves del cual se Obtiene la informacion del Producto mediante su Id ";
     public final static String GET_ID_NOTE="Para la obtencion de datos de un Producto , sera necesario enviar el Id del Producto a consultar";
+    public final static String GET_CATEGORY_VALUE="Metodo a traves del cual se Obtiene la informacion del Producto mediante su Id ";
+    public final static String GET_CATEGORY_NOTE="Para la obtencion de datos de un Producto , sera necesario enviar el Id del Producto a consultar";
 
-    public final static String GETDATA_VALUE="Metodo a traves del cual se Obtiene la informacion del Producto mediante su origen y/o modelo, ademas se puede obtener todas las operaciones registradas";
-    public final static String GETDATA_NOTE="Para la obtencion de datos del Producto , sera necesario enviar el origen y/o modelo a consultar; si no se envia ninguna variable te traera todos los Producto";
+    public final static String GETDATA_VALUE="Metodo a traves del cual se Obtiene la informacion del Producto mediante su Categoria";
+    public final static String GETDATA_NOTE="Para la obtencion de datos del Producto , sera necesario enviar la Categoria del  Producto";
 
 }
