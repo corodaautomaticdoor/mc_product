@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "d5b53086-d619-4248-be60-fc401fb26706",
+		"name": "PRODUCTO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Guardar productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"porton\",\r\n    \"subCategory\": \"porton de garaje\",\r\n    \"model\": \"PG02\",\r\n    \"brand\": \"coroda\",\r\n    \"description\": \"porton para cochera\",\r\n    \"origin\": 1,\r\n    \"material\": \"cedro\",\r\n    \"dimensions\": \"8 m x 2.5 m\",\r\n    \"color\": \"marron\",\r\n    \"priceUnit\": 4500.00,\r\n    \"image\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"id\": 6,\r\n    \"category\": \"porton\",\r\n    \"subCategory\": \"porton de garaje\",\r\n    \"model\": \"PG03\",\r\n    \"brand\": \"coroda\",\r\n    \"description\": \"porton para cochera\",\r\n    \"origin\": 0,\r\n    \"material\": \"cahoba\",\r\n    \"dimensions\": \"8 m x 2.5 m\",\r\n    \"color\": \"marron\",\r\n    \"priceUnit\": 5500.00,\r\n    \"image\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos por Categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8021/product/porton",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"porton"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar_Origen_categoria_modelo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product?originProduct=Importado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "modelProduct",
+							"value": "PP01",
+							"disabled": true
+						},
+						{
+							"key": "categoryProduct",
+							"value": "puerta",
+							"disabled": true
+						},
+						{
+							"key": "originProduct",
+							"value": "Nacional",
+							"disabled": true
+						},
+						{
+							"key": "originProduct",
+							"value": "Importado"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Producto por model",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8021/product/model/PG03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8021",
+					"path": [
+						"product",
+						"model",
+						"PG03"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
