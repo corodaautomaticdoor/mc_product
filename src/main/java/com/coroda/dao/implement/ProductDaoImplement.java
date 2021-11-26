@@ -5,6 +5,7 @@ import com.coroda.dto.request.ProductRequest;
 import com.coroda.dto.response.ProductResponse;
 import com.coroda.entity.OriginProduct;
 import com.coroda.entity.Product;
+import com.coroda.exception.ResourceNotFoundException;
 import com.coroda.repository.ProductRepository;
 import io.reactivex.*;
 import io.reactivex.schedulers.Schedulers;
@@ -121,11 +122,13 @@ public class ProductDaoImplement implements ProductDao {
     }
 
     @Override
-    public Observable<ProductResponse> searchModelProduct(String modelProduct) {
+    public Maybe<ProductResponse> searchModelProduct(String modelProduct) {
         log.info("Extrayendo reistros del Producto  acorde al modelo");
         return Observable.fromIterable(productRepository.searchModelProduct(modelProduct))
                 .filter(obj -> obj.getModel().equals(modelProduct))
-                .map(product -> getProduct(product))
+                .map(product -> getProduct(product))                .firstElement()
+                .switchIfEmpty(Maybe
+                        .error( new ResourceNotFoundException("No se encontró el producto consultado")))
                 .subscribeOn(Schedulers.io());
     }
 

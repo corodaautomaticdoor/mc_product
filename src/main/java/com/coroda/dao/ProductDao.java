@@ -4,6 +4,7 @@ import com.coroda.dto.request.ProductRequest;
 import com.coroda.dto.response.ProductResponse;
 import com.coroda.entity.OriginProduct;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
@@ -16,7 +17,7 @@ public interface ProductDao {
     Observable<ProductResponse> findAll();
 
     Observable<ProductResponse> searchOrigin(OriginProduct originProduct);
-    Observable<ProductResponse> searchModelProduct(String modelProduct);
+    Maybe<ProductResponse> searchModelProduct(String modelProduct);
     Observable<ProductResponse> searchCategoryProduct(String categoryProduct);
     Observable<ProductResponse> getData(OriginProduct originProduct, String modelProduct);
 

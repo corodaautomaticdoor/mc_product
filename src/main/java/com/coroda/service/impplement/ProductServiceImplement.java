@@ -6,6 +6,7 @@ import com.coroda.dto.response.ProductResponse;
 import com.coroda.entity.OriginProduct;
 import com.coroda.service.ProductService;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +43,7 @@ public class ProductServiceImplement implements ProductService {
     }
 
     @Override
-    public Observable<ProductResponse> getByModel(String model) {
+    public Maybe<ProductResponse> getByModel(String model) {
         return productDao.searchModelProduct(model);
     }
     @Override
@@ -71,7 +72,7 @@ public class ProductServiceImplement implements ProductService {
             }else if (params.get("originProduct") ==null && params.get("modelProduct") != null){
                 log.info("Buscando por modelo de Producto ");
                 modelProduct = params.get("modelProduct");
-                productResponseObservable = productDao.searchModelProduct(modelProduct);
+                productResponseObservable = productDao.searchModelProduct(modelProduct).toObservable();
             }else if (params.get("categoryProduct") !=null && params.get("modelProduct") == null){
                 log.info("Buscando por categoria de Producto ");
                 categoryProduct = params.get("categoryProduct");
