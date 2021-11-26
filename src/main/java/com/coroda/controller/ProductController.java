@@ -5,6 +5,7 @@ import com.coroda.dto.response.ProductResponse;
 import com.coroda.service.ProductService;
 import com.coroda.util.Constants;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.swagger.annotations.Api;
@@ -62,7 +63,7 @@ public class ProductController {
 
     @GetMapping(Constants.MODEL)
     @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
-    public Observable<ProductResponse> getByModel(@PathVariable("model")String model){
+    public Maybe<ProductResponse> getByModel(@PathVariable("model")String model){
         log.info("Obtencion de datos por id");
         return productService.getByModel(model);
     }
