@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.ws.rs.BadRequestException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -109,6 +110,7 @@ public class ProductDaoImplement implements ProductDao {
         log.info("seteo de todos los datos registrados");
         return Observable.fromIterable(productRepository.findAll())
                 .map(product -> getProduct(product))
+                .sorted(Comparator.comparing(ProductResponse::getPriceUnit))
                 .subscribeOn(Schedulers.io());
     }
 
