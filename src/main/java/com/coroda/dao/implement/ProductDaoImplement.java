@@ -140,6 +140,7 @@ public class ProductDaoImplement implements ProductDao {
         return Observable.fromIterable(productRepository.searchCategory(categoryProduct))
                 .filter(obj -> obj.getCategory().equals(categoryProduct))
                 .map(product -> getProduct(product))
+                .sorted(Comparator.comparing(ProductResponse::getPriceUnit))
                 .subscribeOn(Schedulers.io());
     }
 
